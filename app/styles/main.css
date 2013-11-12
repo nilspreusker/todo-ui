@@ -1,0 +1,11 @@
+.done-true {
+    text-decoration: line-through;
+}
+
+.done-false {
+    text-decoration: none;
+}
+
+.todos {
+    text-align: left;
+}

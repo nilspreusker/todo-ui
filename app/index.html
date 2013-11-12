@@ -1,0 +1,32 @@
+<!doctype html>
+<head>
+    <meta charset="utf-8">
+    <title>Todo - A Demo Webapp with AngularJS, Java EE 6 and Bootstrap 3.0</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="styles/bootstrap.css">
+    <link rel="stylesheet" href="styles/jumbotron-narrow.css">
+    <link rel="stylesheet" href="styles/font-awesome.css">
+
+    <link rel="stylesheet" href="styles/main.css">
+</head>
+<body ng-app="todoApp">
+<div class="container">
+    <div class="header">
+        <h3 class="text-muted">A demo webapp with AngularJS 1.2, Java EE6 and Bootstrap 3</h3>
+    </div>
+    <div ng-view="" class="well"></div>
+    <div class="footer"><p>© Nils Preusker - MovingIMAGE24 2013</p></div>
+</div>
+
+<script src="scripts/vendor/angular/angular.js"></script>
+<script src="scripts/vendor/angular-route/angular-route.js"></script>
+<script src="scripts/vendor/angular-resource/angular-resource.js"></script>
+<script src="scripts/services/todoService.js"></script>
+<script src="scripts/filters/momentsFilter.js"></script>
+<script src="scripts/vendor/jquery/jquery.js"></script>
+<script src="scripts/app.js"></script>
+<script src="scripts/controllers/todoController.js"></script>
+<script src="scripts/vendor/moment/moment.min.js"></script>
+</body>
+</html>
