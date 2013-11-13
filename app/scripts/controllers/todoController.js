@@ -25,7 +25,7 @@ angular.module('todoApp')
             angular.forEach($scope.todos, function (todo, index) {
                 var count = 0;
                 if (todo.done) {
-                    TodoService.delete(todo, function () {
+                    TodoService.delete({id: todo.id}, function () {
                         $scope.todos = TodoService.query();
                     });
                 }

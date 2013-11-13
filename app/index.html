@@ -10,12 +10,41 @@
 
     <link rel="stylesheet" href="styles/main.css">
 </head>
-<body ng-app="todoApp">
+<body>
 <div class="container">
     <div class="header">
         <h3 class="text-muted">A demo webapp with AngularJS 1.2, Java EE6 and Bootstrap 3</h3>
     </div>
-    <div ng-view="" class="well"></div>
+    <div class="well">
+        <h1>TODOs</h1>
+        <p>
+            <a href="" ng-click="clearDone()"><i class="fa fa-trash-o fa-lg"></i> Clear completed</a>
+        </p>
+        <ul class="list-group">
+            <li class="list-group-item">
+                <label>
+                    <input type="checkbox" ng-model="todo.done" ng-change="toggleDone(todo)">
+                    <span class="done-false">Buy milk</span>
+                </label>
+                <span class="text-muted pull-right">created just now</span>
+            </li>
+            <li class="list-group-item">
+                <label>
+                    <input type="checkbox" ng-model="todo.done" ng-change="toggleDone(todo)">
+                    <span class="done-true">Buy bread</span>
+                </label>
+                <span class="text-muted pull-right">created two hours ago</span>
+            </li>
+        </ul>
+        <form name="todoForm" class="form-inline" role="form">
+            <div class="form-group">
+                <label class="sr-only" for="newTodo">New todo</label>
+                <input type="text" ng-model="todoText" placeholder="add new todo here..." required class="form-control"
+                       id="newTodo"/>
+            </div>
+            <input disabled type="submit" class="btn btn-primary" value="add"/>
+        </form>
+    </div>
     <div class="footer"><p>© Nils Preusker - MovingIMAGE24 2013</p></div>
 </div>
 
