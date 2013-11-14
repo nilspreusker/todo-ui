@@ -10,39 +10,33 @@
 
     <link rel="stylesheet" href="styles/main.css">
 </head>
-<body>
+<body ng-app="todoApp">
 <div class="container">
     <div class="header">
         <h3 class="text-muted">A demo webapp with AngularJS 1.2, Java EE6 and Bootstrap 3</h3>
     </div>
-    <div class="well">
+    <div class="well" ng-controller="todoController">
         <h1>TODOs</h1>
         <p>
-            <a href=""><i class="fa fa-trash-o fa-lg"></i> Clear completed</a>
+            <a href="" ng-click="clearDone()"><i class="fa fa-trash-o fa-lg"></i> Clear completed</a>
         </p>
-        <ul class="list-group">
-            <li class="list-group-item">
+        <div ng-show="todos.length === 0" class="alert alert-info">Looks like you have finished all your tasks...</div>
+        <ul ng-show="todos.length > 0" class="list-group">
+            <li class="list-group-item" ng-repeat="todo in todos">
                 <label>
-                    <input type="checkbox">
-                    <span class="done-false">Buy milk</span>
+                    <input type="checkbox" ng-model="todo.done" ng-change="toggleDone(todo)">
+                    <span class="done-{{todo.done}}">{{todo.text}}</span>
                 </label>
-                <span class="text-muted pull-right">created just now</span>
-            </li>
-            <li class="list-group-item">
-                <label>
-                    <input type="checkbox">
-                    <span class="done-true">Buy bread</span>
-                </label>
-                <span class="text-muted pull-right">created two hours ago</span>
+                <span class="text-muted pull-right">{{todo.createdDate | moments }}</span>
             </li>
         </ul>
-        <form name="todoForm" class="form-inline" role="form">
+        <form novalidate ng-submit="addTodo()" name="todoForm" class="form-inline" role="form">
             <div class="form-group">
                 <label class="sr-only" for="newTodo">New todo</label>
                 <input type="text" placeholder="add new todo here..." required class="form-control"
-                       id="newTodo"/>
+                       id="newTodo" ng-model="todoText"/>
             </div>
-            <input disabled type="submit" class="btn btn-primary" value="add"/>
+            <input ng-disabled="todoForm.$invalid" disabled type="submit" class="btn btn-primary" value="add"/>
         </form>
     </div>
     <div class="footer"><p>© Nils Preusker - MovingIMAGE24 2013</p></div>
@@ -54,7 +48,6 @@
 <script src="scripts/services/todoService.js"></script>
 <script src="scripts/filters/momentsFilter.js"></script>
 <script src="scripts/vendor/jquery/jquery.js"></script>
-<script src="scripts/app.js"></script>
 <script src="scripts/controllers/todoController.js"></script>
 <script src="scripts/vendor/moment/moment.min.js"></script>
 </body>

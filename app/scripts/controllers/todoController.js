@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('todoApp')
+angular.module('todoApp', ['ngRoute', 'todoApp.services', 'todoApp.filters'])
     .controller('todoController', ['$scope', '$location', 'TodoService', function ($scope, $location, TodoService) {
         $scope.todos = TodoService.query();
 
