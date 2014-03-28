@@ -18,6 +18,9 @@
     <div class="well" ng-controller="todoController">
         <h1>TODOs</h1>
         <p>
+            Hi {{userName}}! <a href="" ng-click="logout()"><i class="fa fa-sign-out fa-lg"></i> Log out</a>
+        </p>
+        <p>
             <a href="" ng-click="clearDone()"><i class="fa fa-trash-o fa-lg"></i> Clear completed</a>
         </p>
         <div ng-show="todos.length === 0" class="alert alert-info">Looks like you have finished all your tasks...</div>
@@ -48,6 +51,7 @@
 <script src="scripts/services/todoService.js"></script>
 <script src="scripts/filters/momentsFilter.js"></script>
 <script src="scripts/vendor/jquery/jquery.js"></script>
+<script src="scripts/vendor/keycloak/keycloak.js"></script>
 <script src="scripts/controllers/todoController.js"></script>
 <script src="scripts/vendor/moment/moment.min.js"></script>
 </body>
